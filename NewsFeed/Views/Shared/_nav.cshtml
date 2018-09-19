@@ -1,0 +1,25 @@
+﻿<ul class="accordion-menu">
+   
+    <li>
+        <a href="@Url.Action("Subscription", "Home")">
+            <i class="menu-icon icon-inbox"></i><span>My Subscription</span>
+        </a>
+    </li>
+    <li>
+        <a href="javascript:void(0);">
+            <i class="menu-icon icon-flash_on"></i><span>News</span><i class="accordion-icon fa fa-angle-left"></i>
+        </a>
+        <ul class="sub-menu">
+            <li><a href="@Url.Action("MyNewsFeed", "Home")">My NewsFeeds</a></li>
+            <li><a href="@Url.Action("AllNewsFeed", "Home")">All NewsFeeds</a></li>
+          
+        </ul>
+    </li>
+    <li>
+        <a href="@Url.Action("Login", "Account")">
+            <i class="menu-icon icon-lock"></i><span>Log In</span>
+        </a>
+    </li>
+     
+   
+</ul>

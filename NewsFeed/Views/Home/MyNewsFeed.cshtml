@@ -1,0 +1,97 @@
+﻿@model List<NewsFeed.EF.News>
+
+<div class="page-inner" style="margin-top: 60px;" ng-controller="NewsCtrl">
+    <div id="main-wrapper">
+        <h2 class="panel-title" style="font-size: 24px;">{{title}}</h2>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="input-group email-search">
+                    <input type="text" ng-model="word" class="form-control" placeholder="Search by news content">
+                    <span class="input-group-btn">
+                        <button class="btn btn-primary"style="margin-right: 5px" type="button" ng-click="search()">Search</button>
+                        <button ng-click="cancel()" class="btn btn-primary" >cancel</button>
+
+                    </span>
+                </div>
+            </div>
+        </div><!-- Row -->
+        <div class="cross-page-line"></div>
+        <div class="row">
+
+            <div class="col-md-3">
+                <div class="email-list">
+                    <ul class="list-unstyled" ng-if="items">
+                        <li ng-repeat="(index,item) in items">
+                            <a id="{{item.Id}}" class="newsfeeds" ng-click="viewNews(index)">
+                                <div class="email-list-item">
+                                    <div class="email-author">
+                                        <img ng-src="{{item.UrlToImage}}" alt="" style="width: 35px; height: 35px">
+                                        <span class="author-name">{{item.Author}}</span>
+                                        <span class="email-date">{{item.PublishedAt.slice(6, -2) | date:'dd/MM/yyyy'}}</span>
+                                    </div>
+                                    <div class="email-info">
+                                        <span class="email-subject">
+                                            {{item.Title}}
+                                        </span>
+                                        <span class="email-text" ng-bind-html="item.Description">
+                                            {{item.Description}}
+                                        </span>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                    <p ng-if="!items"></p>
+                </div>
+            </div>
+            <div class="col-md-9">
+
+                <div class="email">
+                    <div class="email-header">
+                        <div class="email-title">
+                            <p>{{singleNews.Title}}</p>
+                        </div>
+                        <span class="divider"></span>
+                        <div class="email-author">
+                            <img ng-src="{{singleNews.UrlToImage}}" alt="" style="width: 35px; height: 35px">
+                            <span class="author-name">{{singleNews.Author}}</span>
+                            <span class="email-date">{{singleNews.PublishedAt.slice(6, -2) | date:'dd/MM/yyyy'}}</span>
+                        </div>
+                        <span class="divider"></span>
+                    </div>
+                    <div class="email-body">
+                        <span>
+                            {{singleNews.Description.substring(0, singleNews.Description.length - 19)}} <a class="btn btn-primary" target="_blank" href="{{singleNews.Url}}">View more..</a>
+
+                        </span>
+
+                    </div>
+                    <div style="margin-top: 10px">
+                        <img ng-src="{{singleNews.UrlToImage}}" alt="news image" style="height: 400px; width: 400px"/>
+                    </div>
+
+                </div>
+            </div>
+        </div><!-- Row -->
+    </div><!-- Main Wrapper -->
+    <div class="page-footer">
+        <p>Made with <i class="fa fa-heart"></i> by stacks</p>
+    </div>
+</div>
+
+
+@section scripts{
+
+}
+
+
+
+
+
+
+
+
+
+
+

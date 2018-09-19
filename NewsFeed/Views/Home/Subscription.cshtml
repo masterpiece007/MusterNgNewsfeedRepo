@@ -1,0 +1,60 @@
+﻿@using NewsFeed.EF
+@model NewsFeed.Models.Subscription
+
+@{
+    var userCategories = (List<UserNewsCategory>) ViewBag.SelectedCategories;
+}
+
+<div class="col-md-12">
+    <h2 class="panel-title" style="font-size: 28px;">Select Newsfeed Categories</h2>
+
+    <div class="panel panel-white">
+        <div class="panel-body">
+            @using (Html.BeginForm("Subscription", "Home", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+                @Html.AntiForgeryToken()
+                if (userCategories != null)
+                {
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Previous Selected Categories</label>
+                        <div class="col-sm-10">
+                            @foreach (var cat in userCategories)
+                            {
+                                <p>@cat.NewsCategory</p>
+                            }
+                        </div>
+                    </div>
+                }
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Categories</label>
+                    <div class="col-sm-10">
+                        @Html.ListBoxFor(x => x.SouceIds, Model.Items, new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" class="btn btn-primary" value="Subscribe" />
+                    </div>
+                </div>
+
+                @*<div class="form-group">
+                        <label class="col-sm-2 control-label">Categories</label>
+                        <div class="col-sm-10">
+
+                            @foreach (var category in Model.Items)
+                            {
+                                <div class="col-md-2">
+                                    <div class="checkbox">
+                                        <label>
+                                            <div class="checker"><span><input type="checkbox"></span></div> @category.Text
+                                        </label>
+                                    </div>
+                                </div>
+                            }
+
+                        </div>
+                    </div>*@
+            }
+        </div>
+    </div>
+</div>

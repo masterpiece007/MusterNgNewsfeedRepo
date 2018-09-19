@@ -1,0 +1,41 @@
+﻿@using NewsFeed.Models
+@model LoginViewModel
+@{
+    ViewBag.Title = "Log in";
+    Layout = "../Shared/_AuthLayout.cshtml";
+}
+
+
+
+
+
+<div class="col-sm-6 col-md-3 login-box">
+    <h4 class="login-title">Sign in to your account</h4>
+    @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { }))
+    {
+        @Html.AntiForgeryToken()
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(m => m.Email, new { @class = "" })
+
+            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Password, new { @class = "" })
+            @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+        </div>
+
+        <button type="submit" class="btn btn-primary">Login</button>
+       // <a href="@Url.Action("Login", "Account")" class="btn btn-default">Login</a><br>
+        <a href="@Url.Action("Register", "Account")" class="btn btn-default">Register</a><br>
+        <a href="@Url.Action("ForgotPassword", "Account")" class="forgot-link">Forgot password?</a>
+
+    }
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
