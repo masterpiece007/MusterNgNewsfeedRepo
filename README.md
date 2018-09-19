@@ -14,4 +14,4 @@ MVC provides different types of filters. Below are some in-built filters in ASPN
 Library binding in xamarin is basically an act of making use of codes/libraries(e.g written in java) that are not native to xamarin, i.e c-sharp in a xamarin project.Library bindings automatically wraps the library with C# wrappers so you can invoke Java or other language's code via C-sharp calls.
 
 # ABOUT THE NEWSFEED PROJECT
-- Please change the Project Url in NewsApi.Integration\NewsFeed\App\app.ts
+- Please change the Project Url in NewsApi.Integration\NewsFeed\App\app.ts to your system project url
