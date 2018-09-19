@@ -15,3 +15,6 @@ Library binding in xamarin is basically an act of making use of codes/libraries(
 
 # ABOUT THE NEWSFEED PROJECT
 - Please change the Project Url in NewsApi.Integration\NewsFeed\App\app.ts to your system project url
+- Note: There is a database script called newsfeed.sql, do ensure to run the script and change the connection string options in the       web.config file   in the NewsFeed folder to your system database options.
+
+- There is two other project involved in the project: NewsApi.Integration for the implementation of NewsAPi 
