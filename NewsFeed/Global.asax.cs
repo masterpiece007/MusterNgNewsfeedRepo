@@ -35,11 +35,11 @@ namespace NewsFeed
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
             _newsFeedEntities = new NewsFeedEntities();
-            //SeedSourceCategories(_newsFeedEntities);
-            //SeedCountry(_newsFeedEntities);
-            //SeedLanguage(_newsFeedEntities);
-            //SeedNewsSource(_newsFeedEntities);
-            //FetchDailyNews(_newsFeedEntities);
+            SeedSourceCategories(_newsFeedEntities);
+            SeedCountry(_newsFeedEntities);
+            SeedLanguage(_newsFeedEntities);
+            SeedNewsSource(_newsFeedEntities);
+            FetchDailyNews(_newsFeedEntities);
         }
 
         private void FetchDailyNews(NewsFeedEntities newsFeedEntities)
